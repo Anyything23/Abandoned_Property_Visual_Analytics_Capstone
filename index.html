@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width = device-width, initial-scale = 1">
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+     <!--<link rel="stylesheet" type="text/css" href="/css/result-light.css">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"> -->
+
+    <style>
+        body {
+            padding: 1px;
+            
+        }
+       
+        .structure {
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 0px solid red;
+            display: table;
+            border-radius: 15px;
+            
+        }
+        .parent_div_1 {
+            width: 100%;
+            height: 100%;
+            border: 0px solid blue;
+            margin-right: 10px;
+            float: left;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: table;
+            border-radius: 15px;
+            background-color: white;
+            
+        }
+        .child_div_1 {
+            float: left;
+            background-color: white;
+            border: 3px solid #404040;
+            padding: 10px;
+            border-radius: 2px;
+            margin-left: 30px;
+            display: table-cell;
+            box-shadow: 10px 10px 5px grey;
+        }
+        .child_div_2 {
+            float: right;
+            background-color: white;
+            border: 3px solid #404040;
+            padding: 10px;
+            border-radius: 2px;
+            margin-right: 30px;
+            display: table-cell;
+            box-shadow: 10px 10px 5px grey;
+        }
+        .child_div_table {
+            border: 2px solid #404040;
+            padding: 20px;
+            background-color: white;
+            border-radius: 2px;
+            margin-left: 30px;
+            box-shadow: 10px 10px 5px grey;
+        }
+        
+        
+        .blue {
+            text-align: center;
+            border: 0px solid green;
+            color: #2196F3;
+            
+            
+        }
+        .black {
+            text-align: center;
+            
+            color: black;
+        }
+
+        .child_text_box {
+            border: 2px solid #404040;
+            margin-bottom: 10px;
+            background-color: ghostwhite;
+            border-radius: 3px;
+        }
+        .info_results {
+            border: 0px solid red;
+            border-radius: 15px;
+            background-color: white;
+        }
+        .circle {
+            width:120px;
+            height:120px;
+            border-radius:50%;
+            font-size:20px;
+            color:black;
+            line-height:120px;
+            text-align:center;
+            border: 1px solid black;
+            margin:0 auto;
+        }
+		
+		  pre {
+			text-align: center;
+			white-space: pre-line;
+			}
+       
+        
+    </style>
+
+</head>
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<body  id="body">
+
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Visual Analytics - Abandoned Properties</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="container" >
+            <div class="row" style="margin-right:auto; padding-left:140px">
+                <div class="span12">
+
+                    <input type="text" class="span5" placeholder="Street" id="street" value="">
+
+                    <input type="text" class="span5" placeholder="City" id="city" value="">
+
+                    <input type="text" class="span5" placeholder="State" id="state" value="">
+
+                    <button class="btn btn-primary" id="submit" onclick="button();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="structure">
+        <div class="parent_div_1">
+            <div class="child_div_1" style="margin-left:30px; width:523px;">
+                <div class="child_text_box">
+                    <h1 class="blue">Total Prediction Score</h1>
+                    
+                    
+
+                </div>
+
+                <div class="info_results">
+                    <div id ="circle" class="circle"></div>
+                   
+                </div> 
+            </div>
+
+            <div class="child_div_2" style="margin-right:25px; width:611px;">
+                <div class="child_text_box">
+                    <h1 class="blue">Individual Scores</h1>
+                    <p class="black"></p>
+
+                </div>
+                <div class="info_results">
+                    
+                    <pre id="pc_IA" style="font-weight:bold; font-size:20px;">Image Analysis: </pre>
+                    <pre id="pc_PH" style="font-weight:bold; font-size:20px;">Price History: </pre>
+                    <pre id="pc_CR" style="font-weight:bold; font-size:20px;">Crime Reports: </pre>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+        <div class="parent_div_1">
+            <div class="child_div_1" style="width:523px;">
+                <div class="child_text_box" >
+                    <h1 class="blue">Image Analysis </h1>
+                    <p class="black" style="text-align:center">Tensorflow Results</p>
+
+                </div>
+                <div class="info_results">
+				
+				
+                    <img id="img" style ="display:block; margin:auto;"></img>
+                    <pre id="plywood" style="font-size: 20px; background-color: white; margin-top:5px;"></pre>
+                </div> 
+            </div>
+
+            <div class="child_div_2" style="margin-right:25px; width:611px;">
+                <div class="child_text_box">
+                    <h1 class="blue" >Pricing History </h1>
+                    <p class="black">Provided by Realtor</p>
+
+                </div>
+                <div class="info_results">
+                    <img id="chart" style ="display:block; margin:auto;"></img>
+                    <pre id="slope" style="font-size: 20px; background-color: white; margin-top:5px;"></pre>
+                </div> 
+            </div>
+
+        </div>
+
+        
+
+
+        <div class="parent_div_1">
+            <div class="child_text_box" style="margin-left:30px; width:523px; border:3px solid #404040;">
+                <h1 class="blue">Crime Reports </h1>
+                <p class="black">Provided by CrimeReports</p>
+                <p class="black" style="font-weight:bold; color:red;" id="blue1"></p>
+
+            </div>
+        
+        <div class="child_div_table">
+            <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Incident Name</th>
+                    <th>Time & Date</th>
+                    <th>Address/Location</th>
+                    <th>Report ID</th>
+                    <th>Crime</th>
+                    <th>Reporter</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+
+            </table>
+        </div>
+            </div>
+    </div>
+    <script>
+	function button(){
+		 var add1 = document.getElementById("pc_IA");
+	    var add2 = document.getElementById("pc_PH");
+	    var add3 = document.getElementById("pc_CR");
+	    var add4 = document.getElementById("circle");
+			add1.innerHTML = "Image Analysis: ";
+				add2.innerHTML = "Price History: ";
+				add3.innerHTML = "Crime Reports: ";
+				add4.innerHTML = " ";
+	$.when(loadImage(), loadPrice(), loadCrime()).done(function(a1, a2, a3){
+	    var max_IA = " out of 60";
+        var max_PH = " out of 30";
+        var max_CR = " out of 10";
+
+            $.ajax({
+                type: "POST",
+                url: "calc_prob.php", // plug in the php with percentage data
+                //data: "address=" + address,
+				beforeSend: function(){
+				
+				add1.innerHTML = "Image Analysis: ";
+				add2.innerHTML = "Price History: ";
+				add3.innerHTML = "Crime Reports: ";
+				add4.innerHTML = " ";
+				},
+                error: function (xhr, status, error) { alert("error Message: \r\nNumeric code is: " + xhr.status + " \r\nError is " + error); },
+                success: function (percents) {
+
+                    var parsed_result = JSON.parse(percents);
+                    var IA = parsed_result[0];
+                    var PH = parsed_result[1];
+                    var CR = parsed_result[2];
+                    var TOTAL = parsed_result[3];
+                    add1.textContent += IA;
+                    add1.textContent += max_IA;    
+                    add2.textContent += PH;
+                    add2.textContent += max_PH;        
+                    add3.textContent += CR;
+                    add3.textContent += max_CR;
+                    add4.textContent += TOTAL;
+					add4.textContent += '%';                   
+                }
+            });
+});
+
+
+	}
+
+		
+   function loadPrice() {
+        var street_spaced = document.getElementById('street').value;
+        var street = street_spaced.split(' ').join('+');
+        var city_spaced = document.getElementById('city').value;
+        var city = city_spaced.split(' ').join('+');
+        var state_spaced = document.getElementById('state').value;
+        var state = state_spaced.split(' ').join('+');
+
+        var address = street + '+' + city + '+' + state;
+        address = encodeURIComponent(address);
+        var postParams = "address=" + address;
+        var img = document.getElementById('img');
+        var crime = document.getElementById('crime');
+        var chart = document.getElementById('chart');
+        var slope = document.getElementById('slope');
+        var plywood = document.getElementById('plywood');
+		
+		return $.ajax({
+                type: "POST",
+                url: "price_history.php",
+                data: "address=" + address,
+				beforeSend: function(){
+                chart.src = "http://localhost/capstone/loading.gif?cache=" + (new Date()).getTime();
+                chart.style.width = "197px";
+                chart.style.height = "130px";
+				chart.align = "center";
+                slope.innerHTML = " ";
+                },
+                error: function (xhr, status, error) { alert("error Message: \r\nNumeric code is: " + xhr.status + " \r\nError is " + error); },
+                success: function (slope1) {
+                    chart.src = "http://localhost/capstone/chart.png?cache=" + (new Date()).getTime();
+                    chart.style.width = "586px";
+                    chart.style.height = "350px";
+                    slope.innerHTML = slope1;
+                }
+            });
+       
+	}	
+	
+	   function loadCrime() {
+        var street_spaced = document.getElementById('street').value;
+        var street = street_spaced.split(' ').join('+');
+        var city_spaced = document.getElementById('city').value;
+        var city = city_spaced.split(' ').join('+');
+        var state_spaced = document.getElementById('state').value;
+        var state = state_spaced.split(' ').join('+');
+
+        var address = street + '+' + city + '+' + state;
+        address = encodeURIComponent(address);
+        var postParams = "address=" + address;
+        var img = document.getElementById('img');
+        var crime = document.getElementById('crime');
+        var chart = document.getElementById('chart');
+        var slope = document.getElementById('slope');
+        var plywood = document.getElementById('plywood');
+
+        var max_IA = " out of 60";
+        var max_PH = " out of 30";
+        var max_CR = " out of 10";
+		var element = document.getElementById("blue1");
+		
+		 return $.ajax({
+                type: "POST",
+                url: "crime_reports.php",
+                data: "address=" + address,
+				beforeSend: function(){
+				$("tbody").empty();
+				element.innerHTML = " ";
+				},
+                error: function (xhr, status, error) { alert("error Message: \r\nNumeric code is: " + xhr.status + " \r\nError is " + error); },
+                success: function (result) {
+                    var parsed_result = JSON.parse(result); // first one is blank
+                    
+                    var incCount = 0;
+                    $.each(parsed_result, function () // .a works same as ["a"] (.a contains theatre names, showtimes, and purchase links )
+                    {
+                        var incident = this["1"];
+                        var Time = this["2"];
+                        var address = this["3"];
+                        var id = this["4"];
+                        var crime = this["5"];
+                        var reporter = this["6"];
+                        incCount = incCount + 1;
+                        $("tbody").append('  <tr> <td >' + incident + '</td>  <td >' + Time + '<td >' + address + '<td >' + id + '<td >' + crime + '<td >' + reporter + '  </td> <hr> </tr> <hr> ');
+                    });
+                    
+                    element.innerHTML = incCount + ' Crimes Detected Nearby';
+                }
+            });
+		
+	}	
+	
+	
+       function loadImage() {
+        var street_spaced = document.getElementById('street').value;
+        var street = street_spaced.split(' ').join('+');
+        var city_spaced = document.getElementById('city').value;
+        var city = city_spaced.split(' ').join('+');
+        var state_spaced = document.getElementById('state').value;
+        var state = state_spaced.split(' ').join('+');
+
+        var address = street + '+' + city + '+' + state;
+        address = encodeURIComponent(address);
+        var postParams = "address=" + address;
+        var img = document.getElementById('img');
+        var crime = document.getElementById('crime');
+        var chart = document.getElementById('chart');
+        var slope = document.getElementById('slope');
+        var plywood = document.getElementById('plywood');
+
+        var max_IA = " out of 60";
+        var max_PH = " out of 30";
+        var max_CR = " out of 10";
+			
+           return $.ajax({
+                type: "POST",
+                url: "image_analysis.php",
+                data: "address=" + address,
+				beforeSend: function(){
+					img.src = "http://localhost/capstone/loading.gif?cache=" + (new Date()).getTime();
+					img.style.width = "197px";
+					img.style.height = "130px";
+					img.align = "center";
+					plywood.innerHTML = " ";
+                },
+                error: function (xhr, status, error) { alert("error Message: \r\nNumeric code is: " + xhr.status + " \r\nError is " + error); },
+                success: function (plywood1) {
+                    img.src = "http://localhost/capstone/image.jpg?cache=" + (new Date()).getTime();
+                    img.style.width = "500px";
+                    img.style.height = "500px";
+					if(plywood1 == '')
+					plywood.innerHTML = "No Plywood Detected!";
+					else
+                    plywood.innerHTML = plywood1;
+                }
+            });
+        }	
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
+
